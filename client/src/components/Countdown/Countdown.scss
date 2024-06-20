@@ -1,0 +1,40 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.countdown{
+    width: 100%;
+    border: 1px solid $leaderboard-gray;
+    border-radius: 8px;
+    margin-top: 16px;
+
+    @include tablet {
+        width: 400px;
+    }
+
+    &__progress {
+        height: 20px;
+        width: 0px;
+        background: linear-gradient(90deg, purple, green, red);
+        border-radius: 8px;
+        animation: 30s progress linear;  
+        animation-fill-mode: forwards;
+    }
+
+    &__time {
+        margin-top: 16px;
+    }
+
+    &__message {
+        margin-top: 16px;
+    }
+}
+
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
