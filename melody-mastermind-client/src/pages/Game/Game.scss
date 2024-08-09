@@ -1,0 +1,228 @@
+@use "../../styles/partials/mixins" as *;
+
+
+.start-game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 16px;
+
+    @include tablet {
+        padding: 64px
+    }
+
+    &__information {
+
+    }
+
+    &__image {
+        width: 100%;
+
+        @include tablet {
+            max-width: 300px;
+        }
+    }
+
+    &__button {
+        @include button--secondary;
+        margin-top: 64px;
+    }
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 16px 128px 16px;
+
+    @include tablet {
+        margin-top: 64px;
+    }
+
+    @include desktop {
+        margin-top: 128px;
+    }
+
+    &__container {
+        flex: 1;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 16px;
+        }
+    }
+
+    &__main {
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__score {
+        font-size: 2rem;
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+
+    &__right-wrapper {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    &__left {
+        flex: 1;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+        }
+    }
+
+
+
+    &__image {
+        width: 50%;
+
+        @include tablet {
+            max-width: 150px;
+        }
+    }
+
+    &__playlist-name {
+        
+        @include tablet {
+            font-size: 2rem;
+            text-align: left
+        }
+    }
+
+    &__information {
+        display: block;
+
+        @include tablet {
+            display: none;
+        }
+
+        &--left {
+            display: none;
+            @include tablet{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 32px;
+            }
+        }
+    }
+
+    
+    &__answers {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        margin-top: 16px;
+        width: 100%;
+    }
+
+    &__points {
+        margin-top: 16px;
+    }
+
+    &__button {
+        width: 100%;
+        padding: 16px 32px;
+        background-color: black;
+        border: 1px solid gray;
+        border-radius: 30px;
+        font-size: 1.1rem;
+
+        @include tablet {
+            width: 400px
+        }
+
+        &--correct {
+            background-color: green;
+        }
+        &--incorrect {
+            background-color: red;
+        }
+        
+    }
+
+    &__modal {
+        display: none;
+        width: 100%;
+    }
+
+    &__final-score {
+        padding-top: 16px;
+    }
+
+    &__end-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__modal-button {
+        width: 100%;
+        padding: 16px 32px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        margin-top: 16px;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        background-position: center left calc(50% - 75px);
+
+        &--play-again {
+            background-image: url("../../assets/icons/icons8-reset-100.png");
+            background-size: 25px;
+        }
+
+        &--playlists {
+            background-image: url("../../assets/icons/icons8-playlist-96.png")
+        }
+        &--next {
+            background-image: url("../../assets/icons/icons8-next-100.png");
+        }
+
+        @include tablet {
+            width: 400px;
+        }
+    }
+}
+
+.audio {
+    width: 100%;
+    &__player {
+        display: none;
+    }
+}
+
+#audio-canvas {
+    width: 100%;
+    max-height: 150px;
+
+    @include tablet {
+
+        width: 400px;
+    }
+}
