@@ -1,4 +1,4 @@
-let timeout: NodeJS.Timeout | undefined
+let timeout: number | undefined
 const timeoutLength = 500
 
 export function debounceUsernameCheck(checkUsernameFunction: Function, username: string){

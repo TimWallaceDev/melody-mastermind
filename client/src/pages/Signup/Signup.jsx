@@ -1,5 +1,5 @@
 import "./Signup.scss";
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../assets/MMlogo.png";
@@ -52,7 +52,7 @@ export function Signup() {
         }
 
         try {
-            const response = await axios.post(`${backendUrl}/melody-mastermind/api/account/signup`, { username, email, password });
+            await axios.post(`${backendUrl}/melody-mastermind/api/account/signup`, { username, email, password });
             navigateTo("/");
         } catch (err) {
             setErrorMessage("Something went wrong with the signup....");

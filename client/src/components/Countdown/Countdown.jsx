@@ -1,6 +1,13 @@
 import "./Countdown.scss"
 import { useRef, useEffect, useState } from "react"
 
+interface CountdownProps {
+    track: any,
+    trigger: any,
+    gameOver: Boolean,
+    answerCorrect: Boolean,
+}
+
 export function Countdown({ track, trigger, gameOver, answerCorrect }) {
 
     const countdownRef = useRef()
