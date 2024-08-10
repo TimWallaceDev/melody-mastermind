@@ -8,7 +8,7 @@ import { userRouter } from './routes/user-router.js'
 import { accountRouter } from './routes/account-router.js'
 import { playlistRouter } from './routes/playlist-router.js'
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3000
 
 const app = express()
 
