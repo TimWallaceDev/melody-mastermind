@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Home } from "./pages/Home/Home"
 import { Game } from './pages/Game/Game';
 import { Account } from './pages/Account/Account';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Leaderboards } from './pages/Leaderboards/Leaderboards';
 import { Signup } from './pages/Signup/Signup';
 import { Login } from './pages/Login/Login';
@@ -25,30 +25,29 @@ function App() {
     }
 
     getToken()
-    
-    
+
   }, [])
 
-if (!token) {
-  return (
-    <h1>Loading</h1>
-  )
-}
+  if (!token) {
+    return (
+      <h1>Loading token</h1>
+    )
+  }
 
-return (
-  <>
-    <HashRouter>
+  return (
+
+    <BrowserRouter basename='/melody-mastermind'>
       <Routes>
-        <Route path={"/melody-mastermind/"} element={<Login/>}/>
-        <Route path={"/melody-mastermind/signup"} element={<Signup/>}/>
-        <Route path={"/melody-mastermind/playlists"} element={<Home/>}/>
-        <Route path={"/melody-mastermind/game/:playlistId"} element={<Game token={token} />} />
-        <Route path={"/melody-mastermind/leaderboards"} element={<Leaderboards/>}/>
-        <Route path={"/melody-mastermind/account"} element={<Account />}/>
+        <Route path={"/"} element={<Login />} />
+        <Route path={"/signup"} element={<Signup />} />
+        <Route path={"/playlists"} element={<Home />} />
+        <Route path={"/game/:playlistId"} element={<Game token={token} />} />
+        <Route path={"/leaderboards"} element={<Leaderboards />} />
+        <Route path={"/account"} element={<Account />} />
       </Routes>
-    </HashRouter>
-  </>
-)
+    </BrowserRouter>
+
+  )
 }
 
 export default App

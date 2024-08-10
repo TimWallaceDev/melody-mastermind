@@ -8,8 +8,6 @@ export function Countdown({ track, trigger, gameOver, answerCorrect }) {
     const [timeLeft, setTimeLeft] = useState(10)
 
     let first
-    let second
-    let last
     let clearMessage
     let interval
 
@@ -18,9 +16,8 @@ export function Countdown({ track, trigger, gameOver, answerCorrect }) {
         void countdownRef.current.offsetWidth; // Trigger reflow
         countdownRef.current.classList.add("countdown__progress")
         setRunningOutOfTime(false)
+        setTimeLeft(10)
         clearTimeout(first)
-        clearTimeout(second)
-        clearTimeout(last)
         clearTimeout(clearMessage)
         first = setTimeout(firstWarning, 20000)
         clearMessage = setTimeout(clearCountdownMessage, 30000)
@@ -61,7 +58,6 @@ export function Countdown({ track, trigger, gameOver, answerCorrect }) {
             {(runningOutOfTime && !gameOver && !answerCorrect) &&
                 <>
                     <div className="countdown__time">{message}</div>
-                    {/* {timeLeft < 4 && <div className="countdown__message">HURRY UP</div>} */}
                 </>
 
             }

@@ -8,7 +8,7 @@ export function DesktopNavbar() {
     return (
         <header className="header">
 
-            <Link to={"/melody-mastermind/"} className="header__brand-link">
+            <Link to={"/"} className="header__brand-link">
                 <div className="header__brand">
                     <img src={"/melody-mastermind" + logo} alt="" className="header__logo" />
                     <h1 className="header__name">Melody <br></br> MasterMind</h1>
@@ -18,17 +18,17 @@ export function DesktopNavbar() {
             <div className="header__links">
                 <ul className="header__items">
                     <li className="header__item">
-                        <Link to={"/melody-mastermind/"} className="header__link">
+                        <Link to={"/"} className="header__link">
                             Playlists
                         </Link>
                     </li>
                     <li className="header__item">
-                        <Link to={"/melody-mastermind/leaderboards"} className="header__link">
+                        <Link to={"/leaderboards"} className="header__link">
                             Leaderboards
                         </Link>
                     </li>
                     <li className="header__item">
-                        <Link to={"/melody-mastermind/account"} className="header__link">
+                        <Link to={"/account"} className="header__link">
                             Account
                         </Link>
                     </li>

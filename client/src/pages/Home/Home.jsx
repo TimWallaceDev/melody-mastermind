@@ -29,10 +29,10 @@ export function Home() {
     }, [])
 
     if (!playlists){
-        return <h1> Loading </h1>
+        return <h1> Loading Playlists</h1>
     }
     else if (!JWT){
-        navigateTo("/melody-mastermind/")
+        navigateTo("/")
     }
 
     return (

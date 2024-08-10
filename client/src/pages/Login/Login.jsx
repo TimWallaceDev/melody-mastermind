@@ -22,7 +22,7 @@ export function Login() {
         function checkForAuthorization() {
             const JWT = localStorage.getItem("JWT")
             if (JWT) {
-                navigateTo("/melody-mastermind/playlists")
+                navigateTo("/playlists")
             }
         }
         checkForAuthorization()
@@ -65,7 +65,7 @@ export function Login() {
             localStorage.setItem("username", username)
 
             //navigate to playlists
-            navigateTo("/melody-mastermind/playlists")
+            navigateTo("/playlists")
         } catch (err) {
             setErrorMessage("We couldn't sign you in. Please check your email and password.")
             errorMessageRef.current.style.color = "red"
@@ -91,7 +91,7 @@ export function Login() {
             const username = response.data.username
             localStorage.setItem("JWT", JWT)
             localStorage.setItem("username", username)
-            navigateTo("/melody-mastermind/playlists")
+            navigateTo("/playlists")
         } catch (err) {
             console.log(err)
         }
@@ -102,7 +102,7 @@ export function Login() {
         <section className="login">
             <div className="login__wrapper">
 
-                <Link to="/melody-mastermind" className="link">
+                <Link to="/" className="link">
                     <div className="login__brand">
                         <img src={"/melody-mastermind" + logo} alt="melody mastermind logo" className="login__logo" />
                         <h1 className="login__name">Melody <br></br> MasterMind</h1>
@@ -135,10 +135,7 @@ export function Login() {
 
                 <section className="signup-button-wrapper">
                     <p className="signup-button-wrapper__or">Don't Have an Account?</p>
-                    <Link to={"/melody-mastermind/signup"}>
-                        {/* <button className="signup__button">
-                            Sign Up
-                        </button> */}
+                    <Link to={"/signup"}>
                         <p className="signup-button-wrapper__link">Sign up Here</p>
                     </Link>
 

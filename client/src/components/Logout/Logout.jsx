@@ -13,7 +13,7 @@ export function Logout({ className, location }) {
         localStorage.removeItem("username")
 
         //redirect to login page
-        navigateTo("/melody-mastermind/")
+        navigateTo("/")
 
     }
 
