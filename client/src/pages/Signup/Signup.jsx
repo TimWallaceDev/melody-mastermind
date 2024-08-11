@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../assets/MMlogo.png";
-import { debounceUsernameCheck } from "./debounce";
+// import { debounceUsernameCheck } from "./debounce";
 
 export function Signup() {
     console.log("rendering signup page")
@@ -61,10 +61,18 @@ export function Signup() {
         }
     }
 
+    const [timeout, setNewTimeout] = useState()
+    const timeoutLength = 500
+
+    function debounceUsernameCheck(username) {
+        clearTimeout(timeout)
+        setNewTimeout(setTimeout(() => checkUsernameAvailable(username), timeoutLength))
+    }
+
     function handleUsernameChange(e) {
         const updatedUsername = e.target.value;
         setUsername(updatedUsername);
-        debounceUsernameCheck(checkUsernameAvailable, updatedUsername)
+        debounceUsernameCheck(updatedUsername)
     }
 
     async function handlePasswordChange(e) {
@@ -100,19 +108,6 @@ export function Signup() {
             errorMessageRef.current.style.color = "red";
         }
     }
-
-    // const debounceUsernameCheck = useCallback(debounce(checkUsernameAvailable), [])
-
-    // function debounce(callback) {
-    //     const delay = 1000
-    //     let timeout
-
-    //     return (...args) => {
-    //         console.log(...args)
-    //         clearTimeout(timeout)
-    //         timeout = setTimeout(() => callback(...args), delay)
-    //     }
-    // }
 
     return (
         <section className="signup">
